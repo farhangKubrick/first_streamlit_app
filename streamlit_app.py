@@ -8,7 +8,7 @@ my_fruit_list = my_fruit_list.set_index('Fruit')
 #The list is based on the index of myfruitlist, which we have set to the 'fruit' column of the csv
 # If we add a list in our third parameter it will autopopulate with those 
 fruits_selected = streamlit.multiselect("Pick some fruits:", list(my_fruit_list.index),['Avocado','Strawberries'])
-#Creating a subset by filtering our table only for the chosen fruits
+#Creating a subset by filtering our table only for the chosen fruits, which is dynamic based on our multiselect
 fruits_to_show = my_fruit_list.loc[fruits_selected]
 #Displaying the filtered table
 streamlit.dataframe(fruits_to_show)
