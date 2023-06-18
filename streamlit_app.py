@@ -24,7 +24,7 @@ streamlit.header('🍌🥭 Build Your Own Fruit Smoothie 🥝🍇')
 streamlit.header("Fruityvice Fruit Advice!")
 fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
 #this onl writes data to the screen
-streamlit.text(fruityvice_response.json())
+#streamlit.text(fruityvice_response.json())
 
 #This converts the json to a tabular format
 fruityvice_normalized = pd.json_normalize(fruityvice_response.json())
