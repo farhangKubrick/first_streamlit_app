@@ -4,6 +4,7 @@ import streamlit
 import requests
 import pandas as pd
 import snowflake.connector
+from urllib.error import URLError
 
 my_fruit_list = pd.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt")
 #Setting the index of our list to the fruit name in the table
