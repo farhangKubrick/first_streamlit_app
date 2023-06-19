@@ -26,6 +26,8 @@ streamlit.text('from Vs code')
 streamlit.header('🍌🥭 Build Your Own Fruit Smoothie 🥝🍇')
 
 streamlit.header("Fruityvice Fruit Advice!")
+
+#A function to manage repeated API request
 def get_fruityvice_data(this_fruit_choice):
     fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
     #this onl writes data to the screen
