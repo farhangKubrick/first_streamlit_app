@@ -1,3 +1,5 @@
+
+
 import streamlit
 import requests
 import pandas as pd
@@ -32,6 +34,8 @@ fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_c
 #This converts the json to a tabular format
 fruityvice_normalized = pd.json_normalize(fruityvice_response.json())
 streamlit.dataframe(fruityvice_normalized)
+#Not running any code apst this
+streamlit.stop()
 
 #Creating a connection to snowflake
 my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
