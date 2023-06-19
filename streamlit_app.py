@@ -45,23 +45,29 @@ try:
 except URLError as e:
     streamlit.error()
 
+
+def get_fruit_load_list():
+    #This will be used to query the database
+    with my_cnx.cursor() as my_cur:
+        #Running some sql on the db
+        my_cur.execute("SELECT * from fruit_load_list")
+        #Getting the first row
+        #my_data_row = my_cur.fetchone()
+        #Getting all the rows from the query
+        my_data_row = my_cur.fetchall()
+        return my_data_row
+streamlit.header("The fruit load list contains:")
+#If the streamlit button is pressed then execute the following:
+if streamlit.button('Get Fruit Load List'):
+    #Creating a connection to snowflake
+    my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
+    my_data_rows = get_fruit_load_list
+    streamlit.dataframe(my_data_rows)
+
+#Letting the user pick a fruit
+# add_my_fruit = streamlit.text_input('What fruit would you like information about?')
+# streamlit.text("Thanks for adding " + add_my_fruit)
+# my_cur.execute("insert into fruit_load_list values ('from streamlit')")
+
 #Not running any code apst this
 streamlit.stop()
-
-#Creating a connection to snowflake
-my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
-#This will be used to query the database
-my_cur = my_cnx.cursor()
-#Running some sql on the db
-my_cur.execute("SELECT * from fruit_load_list")
-#Getting the first row
-#my_data_row = my_cur.fetchone()
-#Getting all the rows from the query
-my_data_row = my_cur.fetchall()
-streamlit.text(type(my_data_row))
-streamlit.header("The fruit load list contains:")
-streamlit.dataframe(my_data_row)
-#Letting the user pick a fruit
-add_my_fruit = streamlit.text_input('What fruit would you like information about?')
-streamlit.text("Thanks for adding " + add_my_fruit)
-my_cur.execute("insert into fruit_load_list values ('from streamlit')")
