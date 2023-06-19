@@ -43,7 +43,7 @@ my_cur.execute("SELECT * from fruit_load_list")
 #my_data_row = my_cur.fetchone()
 #Getting all the rows from the query
 my_data_row = my_cur.fetchall()
-
+streamlit.text(type(my_data_row))
 streamlit.header("The fruit load list contains:")
 streamlit.dataframe(my_data_row)
 #Letting the user pick a fruit
