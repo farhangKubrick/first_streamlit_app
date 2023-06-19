@@ -49,7 +49,7 @@ streamlit.dataframe(my_data_row)
 #Letting the user pick a fruit
 add_my_fruit = streamlit.text_input('What fruit would you like information about?')
 streamlit.text(type(add_my_fruit))
-my_data_row.append(tuple(str(add_my_fruit)))
+my_data_row.append += str(add_my_fruit)
 streamlit.text("Thanks for adding " + add_my_fruit)
 streamlit.text(my_data_row)
 streamlit.dataframe(my_data_row)
