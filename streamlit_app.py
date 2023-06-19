@@ -41,7 +41,11 @@ my_cur = my_cnx.cursor()
 my_cur.execute("SELECT * from fruit_load_list")
 #Getting the first row
 #my_data_row = my_cur.fetchone()
+#Getting all the rows from the query
 my_data_row = my_cur.fetchall()
+type(my_data_row)
 streamlit.header("The fruit load list contains:")
 streamlit.dataframe(my_data_row)
-
+#Letting the user pick a fruit
+add_my_fruit = streamlit.text_input('What fruit would you like information about?')
+#my_data_row.append()
